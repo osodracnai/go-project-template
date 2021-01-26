@@ -1,0 +1,26 @@
+# Esses testes tem dependências externas da
+# AWS por enquanto ficarão desabilitados.
+
+FROM golang:latest
+
+COPY ./ /project
+
+WORKDIR /project
+
+ENV GOPRIVATE=gitlab.com/ip-guiabolso/go-project-template
+
+ENV GIT_CLONE_PATH=/go
+
+ENV TOKEN=8c7gKpeS7xnGMshQ9PXz
+
+ENV GIT_CLONE_PATH=/project/gitlab.com/ip-guiabolso/go-project-template
+
+RUN git config --global url."https://gitlab-ci-token:${TOKEN}@gitlab.com/".insteadOf "https://gitlab.com/"
+
+RUN make fmt
+
+RUN make vet
+
+RUN make binary
+
+CMD ["make", "test"]
