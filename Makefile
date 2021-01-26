@@ -57,3 +57,4 @@ rename:
 	sed -i -e  "s/go-project-template/$(PROJECT_NAME)/g" ./Dockerfile
 	sed -i -e  "s/go-project-template/$(PROJECT_NAME)/g" ./Dockerfile-tests-bkp
 	sed -i -e  "s/go-project-template/github.com\/gbprojectbr\/$(PROJECT_NAME)/g" ./cmd/server.go
+	sed -i -e  "s/go-project-template/github.com\/gbprojectbr\/$(PROJECT_NAME)/g" ./main.go
